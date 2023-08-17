@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LinkedIn Data</title>
+</head>
+<body>
+    <h1>Data from LinkedIn Profile</h1>
+
+    <h2>Followers:</h2>
+    <p>Jumlah Followers: {{ agenda_setting.jumlah_followers }}</p>
+
+    <h2>Total Postingan:</h2>
+    <p>Total Postingan: {{ total_postingan }}</p>
+
+    <!-- Display posts from the specified time range -->
+    <h2>Posts:</h2>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <strong>Post ID:</strong> {{ post.post_id }}<br>
+            <strong>Caption:</strong> {{ post.caption }}<br>
+            <strong>Reactions:</strong> {{ post.reactions }}<br>
+            <strong>Post Date/Time:</strong> {{ post.post_date_time }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

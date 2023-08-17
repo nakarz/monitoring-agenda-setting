@@ -1,0 +1,80 @@
+{% if error %}
+  <p>{{ error }}</p>
+{% endif %}
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/roles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="../static/js/bootstrap.js"></script>
+
+    <title>Data Agenda Setting</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png">
+  </head>
+
+  <body>
+  <!-- Navbar -->
+  {% block navbar %}
+    {% include './items/navbar.html' %}
+  {% endblock %}
+  
+  <!-- MAIN -->
+  <section>
+    <div class="container" style="height: 648px;">
+      <div class="row d-flex justify-content-center" style="padding-top: 50px;">
+
+        <!-- Table User -->
+        <div class="col-md-12"  style="padding-top: 8px;">
+          <h1 class="text-center" style="font-size: 20px; font-weight: 700;">AGENDA SETTING MINGGU INI</h1>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Nomor Agenda</th>
+                <th scope="col">Topik Agenda</th>
+                <th scope="col">Pesan Kunci</th>
+                <th scope="col">Sub Pesan Kunci</th>
+                <th scope="col">Agenda Start</th>
+                <th scope="col">Agenda Finish</th>
+              </tr>
+            </thead>
+
+            <!-- Get data user from database-->
+            <tbody>
+              {% for as in input_as_data %}
+              <tr>
+                <th scope="row">{{ as.nomor_agenda }}</th>
+                <td>{{ as.topik_agenda }}</td>
+                <td>{{ as.pesan_kunci }}</td>
+                <td>{{ as.sub_pesan_kunci }}</td>
+                <td>{{ as.agenda_date_time_start}}</td>
+                <td>{{ as.agenda_date_time_end}}</td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-center pt-3">
+            <a class="btn-option" href="{% url 'edit_agenda_setting' as.id %}" type="submit">Edit</a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- footer -->
+  {% block footer %}
+  {% include './items/footer.html' %}
+  {% endblock %}
+
+  </body>
+</html>

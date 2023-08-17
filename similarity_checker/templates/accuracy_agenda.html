@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Similarity Processor</title>
+</head>
+<body>
+    <h1>Similarity Processor Results</h1>
+
+    <h2>Postingan dalam rentang waktu agenda setting:</h2>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.account_name }} - {{ post.caption }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Jumlah kata-kata dalam caption:</h2>
+    <h3>Pesan Kunci:</h3>
+    <ul>
+        {% for word, count in pesan_kunci_count.items %}
+            <li>{{ word }}: {{ count }} ({{ pesan_kunci_percentage|get_item:word }}%)</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Sub Pesan Kunci:</h3>
+    <ul>
+        {% for word, count in sub_pesan_kunci_count.items %}
+            <li>{{ word }}: {{ count }} ({{ sub_pesan_kunci_percentage|get_item:word }}%)</li>
+        {% endfor %}
+    </ul>
+
+    <form method="post" action="{% url 'download_excel' %}">
+        {% csrf_token %}
+        <input type="submit" value="Download Excel">
+    </form>
+</body>
+</html>

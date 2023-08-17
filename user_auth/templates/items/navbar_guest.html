@@ -1,0 +1,46 @@
+<!-- Navbar -->
+<section>
+  <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+    <div class="container-fluid" style="padding-left: 49px;">
+      <div class="row justify-content-center align-items-center">
+        <div class="col col-2">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png" alt="" width="55" height="51" class="d-inline-block align-text-top">
+          </a>
+        </div>
+        <div class="col col-10" style="font-size: 20px; font-weight: 700; padding-left: 34px;">
+          MONITORING AGENDA SETTING
+        </div>  
+      </div>
+      
+      <div class="ms-auto">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-flex">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item mx-auto">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item" style="padding-right: 59px;">
+                {% if request.path == '/login/' %}
+                  <a class="btn-option" href="{% url 'register' %}" type="submit">Register</a>
+                {% elif request.path == '/register/' or '/' %}
+                  <a class="btn-option" href="{% url 'login' %}" type="submit">Login</a>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>

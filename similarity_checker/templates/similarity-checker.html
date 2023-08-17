@@ -1,0 +1,137 @@
+{% if error %}
+  <p>{{ error }}</p>
+{% endif %}
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/similarity-checker.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="../static/js/bootstrap.js"></script>
+
+    <title>Similarity Checker</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png">
+  </head>
+
+  <body>
+  <!-- Navbar -->
+  {% block navbar %}
+    {% include './items/navbar.html' %}
+  {% endblock %}
+
+  <!-- MAIN -->
+  <section>
+    <div class="container-fluid" style="height: 1050px;">
+      <div class="row d-flex justify-content-center">
+
+        <!-- Title -->
+        <div class="col-md-12 text-center">
+          <h1 style="font-size: 32px; font-weight: 700; padding-top: 53px; padding-bottom: 39px;">VERIFIKASI MANUAL</h1>
+        </div>
+
+        <!-- Form for Manual Verification -->
+        <div class="col-md-10" style="background-color: #C7EEFF; height: 800px; border-radius: 12px;">
+          <div style="padding: 20px 63px 0px 63px;">
+            <form method="POST">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-6">
+                  <label for="ue1" class="form-label">Unit Eselon 1: </label>
+                  <select class="form-select" name="ue1" id="ue1" required>
+                    <option disabled hidden>Select Unit Eselon 1</option>
+                    <option selected value="Kemenkeu">Kemenkeu</option>
+                    <option value="Setjen">Setjen</option>
+                    <option value="DJA">DJA</option>
+                    <option value="DJP">DJP</option>
+                    <option value="DJPPR">DJPPR</option>
+                    <option value="DJPB">DJPB</option>
+                    <option value="DJKN">DJKN</option>
+                    <option value="DJBK">DJBK</option>
+                    <option value="Itjen">Itjen</option>
+                    <option value="DJBC">DJBC</option>
+                    <option value="BKF">BKF</option>
+                    <option value="BPPK">BPPK</option>
+                    <option value="SMV">SMV</option>
+                  </select>
+                </div>
+                <div class="col-6">
+                  <label for="social_media" class="form-label">Sosial Media: </label>
+                  <select class="form-select" name="social_media" id="social_media" required>
+                    <option disabled hidden>Select Social Media</option>
+                    <option value="Facebook">Facebook</option>
+                    <option selected value="Instagram">Instagram</option>
+                    <option value="Linkedin">Linkedin</option>
+                    <option value="Tiktok">Tiktok</option>
+                    <option value="Twitter">Twitter</option>
+                    <option value="YouTube">YouTube</option>
+                  </select>
+                </div>
+              </div>
+              <div class="pb-3">
+                <label for="account_url" class="form-label">Link Account: </label>
+                <input class="form-control" id="account_url" name="account_url" rows="4" value="https://www.instagram.com/smindrawati/" readonly>
+              </div>            
+              <div class="pb-3">
+                <label for="post_url" class="form-label">Link Post: </label>
+                <input class="form-control" id="post_url" name="post_url" rows="4" readonly value="https://www.instagram.com/p/CvrtD2RpKi0">
+              </div>            
+              <div class="pb-3">
+                <label for="captions" class="form-label">Caption: </label>
+                <textarea class="form-control" id="captions" rows="4" name="captions" readonly>Pemerintah memiliki komitmen yang sangat serius pada dunia pendidikan. Hal ini terlihat dari kewajiban alokasi APBN #UangKita sebesar 20% di sektor ini. Hari ini, saya bersama dengan Pak @suahasil (yang sama-sama masih memiliki NIP dosen 13) dan jajaran @kemenkeuri lainnya berbincang dengan Prof. Ir. Nizam (Plt. Dirjen Dikti @kemendikbud.ri) terkait bagaimana kita bisa lebih memaksimalkan alokasi ini. Fokus pembicaraan kami adalah tentang pendanaan PTNBH kelas dunia yang berkelanjutan. Kami ingin mendengar dari Prof. Nizam supaya mendapatkan perspektif baru terkait pengelolaan anggaran ini. Selama berbincang, kami sepakat bahwa yang harus menjadi fokus kita adalah what is within our control. Model bisnis dan tata kelola harus terus kita evaluasi dan perbaiki. Tujuannya, supaya Indonesia memiliki perguruan tinggi yang kelas dunia. Masuk di ranking 100 besar dunia. Perlu bauran kebijakan dari beragam aspek disini. Tidak hanya di dalam universitasnya, namun juga dalam ekosistemnya..! Sebagai seseorang yang sangat dekat dengan dunia pendidikan, saya pastikan @kemenkeuri dan APBN #UangKita akan terus hadir mendukung dunia pendidikan di Indonesia..! Dari Dialog dengan Plt. Direktur Jenderal Pendidikan Tinggi, Prof. Ir. Nizam, M.Sc., DIC, Ph.D., IPU, Asean Eng. Jakarta, 8 Agustus 2023</textarea>
+              </div>
+              <div class="pb-3">
+                <label for="topik" class="form-label">Topik: </label>
+                <input type="text" class="form-control" id="topik" name="topik" readonly value="Testing"> <!--from agenda setting-->
+              </div>
+              <div class="pb-3">
+                <label for="pesan_kunci" class="form-label">Pesan Kunci: </label>
+                <input type="text" class="form-control" id="pesan_kunci" name="pesan_kunci" readonly value="Indonesia menjaga pertumbuhan ekonomi diatas 5% selama 7 kuartal berturut turut. APBN menjadi instrumen pemulihan ekonomi yang penting dan akan terus mendukung pembangunan seluruh pelosok Indonesia dan perbaikan kesejahteraan rakyat. APBN harus terus dijaga kesehatan dan kredibilitasnya dan diperkuat efektivitas dan akuntabilitasnya agar terus menjadi instrumen pembangunan yang handal, RUU APBN 2024">
+              </div>
+              <div class="pb-3">
+                <label for="sub_pesan_kunci" class="form-label">Sub Pesan Kunci: </label>
+                <input type="text" class="form-control" id="sub_pesan_kunci" name="sub_pesan_kunci" readonly value="Indonesia menjaga pertumbuhan ekonomi diatas 5% selama 7 kuartal berturut turut. APBN menjadi instrumen pemulihan ekonomi yang penting dan akan terus mendukung pembangunan seluruh pelosok Indonesia dan perbaikan kesejahteraan rakyat. APBN harus terus dijaga kesehatan dan kredibilitasnya dan diperkuat efektivitas dan akuntabilitasnya agar terus menjadi instrumen pembangunan yang handal, RUU APBN 2024">
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <label for="accuracy" class="form-label">Accuracy Automated Checker: </label>
+                  <input type="text" class="form-control" id="accuracy" name="accuracy" readonly value="8%">
+                </div>
+                <div class="col-4">
+                  <label for="kesesuaian" class="form-label">Kesesuaian: </label>
+                  <select class="form-select" name="kesesuaian" id="kesesuaian" required>
+                    <option selected value="Sesuai">Sesuai</option> <!--sesuai accuracy automated checker-->
+                    <option value="Tidak Sesuai">Tidak Sesuai</option>
+                  </div>
+                  </select>
+                </div>
+                <div class="col-4">
+                  <label for="catatan" class="form-label">Catatan</label>
+                  <textarea class="form-control" id="catatan" name="catatan" rows="2"></textarea>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <!-- Submit Form Button-->
+        <div class="col-md-12 d-flex justify-content-center" style="padding-top: 18px;">
+          <button class="btn-option" style="width: 287px; height: 48px; background: #EFB829; color: #0D5CAB; border-style: none;" type="submit" name="submit">Save</button>
+        </div>
+          </form>
+          
+    </div>
+  </section>
+
+  <!-- footer -->
+  {% block footer %}
+  {% include './items/footer.html' %}
+  {% endblock %}
+
+  </body>
+</html>

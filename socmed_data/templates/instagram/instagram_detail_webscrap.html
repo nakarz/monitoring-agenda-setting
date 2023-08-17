@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Post Information</title>
+</head>
+<body>
+    <h1>Instagram Post Information (Web Scrapping)</h1>
+    <p>UE1: {{ ue1 }}</p>
+    <p>Agenda Start: {{ agenda_start }}</p>
+    <p>Agenda End: {{ agenda_end }}</p>
+    <ul>
+        {% for data in socmed_data %}
+            <li>Account URL: {{ data.account_url }}</li>
+            <li>Followers: {{ data.followers }}</li>
+            <li>Posts: {{ data.posts}}</li>
+            <li>Post URL: {{ data.post_url }}</li>
+            <li>Likes: {{ data.likes }}</li>
+            <li>Comments: {{ data.comments }}</li>
+            <li>Viewers: {{ data.viewers }}</li>
+            <li>Caption: {{ data.caption }}</li>
+            <br>
+        {% endfor %}
+    </ul>
+</body>
+</html>

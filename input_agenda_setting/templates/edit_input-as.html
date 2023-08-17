@@ -1,0 +1,157 @@
+{% if error %}
+  <p>{{ error }}</p>
+{% endif %}
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/input-as.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="../static/js/bootstrap.js"></script>
+
+    <title>Edit Agenda Settings</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png">
+
+    <!-- Load jQuery library (version 3.6.0) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Load moment.js library (required by daterangepicker) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <!-- Load an older version of the daterangepicker library -->
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker@3.0.3/daterangepicker.min.js"></script>
+
+    <!-- Load the CSS for daterangepicker -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker@3.0.3/daterangepicker.css" />
+
+  </head>
+  
+  <body>
+  <!-- Navbar -->
+  {% block navbar %}
+    {% include './items/navbar.html' %}
+  {% endblock %}
+  
+  <!-- MAIN -->
+  <section>
+    <div class="container-fluid" style="height: 800px;">
+      <div class="row d-flex justify-content-center">
+
+        <!-- Title -->
+        <div class="col-md-12 text-center">
+          <h1 style="font-size: 32px; font-weight: 700; padding-top: 53px; padding-bottom: 39px;">EDIT AGENDA SETTING</h1>
+        </div>
+
+        <!-- Form Input Agenda Setting -->
+        <div class="col-md-10" style="background-color: #C7EEFF; height: 500px; padding-top: 10px; padding-bottom: 10px; border-radius: 12px;">
+          <div style="padding: 20px 63px 0px 63px;">
+            <form method="POST">
+              {% csrf_token %}
+              <div class="pb-3">
+                <label for="agenda_date_time" class="form-label">Pilih Durasi Agenda Setting: </label>
+                <p style="font-size: 12px"> Durasi Agenda Sekarang: {{ agenda_setting.agenda_date_time_start|date:'Y-m-d H:i:s' }} - {{ agenda_setting.agenda_date_time_end|date:'Y-m-d H:i:s' }} </p>
+                <input type="text" class="form-control" id="agenda_date_time" name="agenda_date_time" placeholder="Select new date range" required>
+              </div>     
+              <div class="pb-3">
+                <label for="nomor_agenda" class="form-label">Nomor Agenda: </label>
+                <input type="text" class="form-control" id="nomor_agenda" name="nomor_agenda" value="{{ agenda_setting.nomor_agenda }}" required>
+              </div>
+              <div class="pb-3">
+                <label for="topik" class="form-label">Topik Agenda: </label>
+                <input type="text" class="form-control" id="topik_agenda" name="topik_agenda" placeholder="input topic" value="{{ agenda_setting.topik_agenda }}" required>
+              </div>
+              <div class="pb-3">
+                <label for="pesan_kunci" class="form-label">Pesan Kunci: </label>
+                <input type="text" class="form-control" id="pesan_kunci" name="pesan_kunci" value="{{ agenda_setting.pesan_kunci }}" required>
+              </div>
+              <div class="pb-3">
+                <label for="sub_pesan_kunci" class="form-label">Sub Pesan Kunci: </label>
+                <input type="text" class="form-control" id="sub_pesan_kunci" name="sub_pesan_kunci" value="{{ agenda_setting.sub_pesan_kunci }}" required>
+              </div>
+            <!-- Submit Button -->
+            <div class="col-md-12 d-flex justify-content-center" style="padding-top: 80px;">
+              <button class="btn-option" style="width: 287px; height: 48px; background: #EFB829; color: #0D5CAB; border-style: none;" type="submit" name="submit" value="Submit" onclick="sendForm()">Save</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </section>
+  <script type="text/javascript">
+    function sendForm() {
+      const form = document.getElementById('myForm');
+      const formData = new FormData(form);
+
+      fetch(form.getAttribute('data-url'), {
+          method: 'POST',
+          body: formData,
+          headers: {
+              'X-CSRFToken': getCookie('csrftoken'),
+          },
+      })
+      .then(response => response.json())
+      .then(data => {
+          // Handle response data if needed
+          console.log(data);
+      })
+      .catch(error => {
+          // Handle errors if needed
+          console.error(error);
+      });
+    }
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    
+    $(function () {
+      $('#agenda_date_time').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+          cancelLabel: 'Clear'
+        }
+      });
+  
+      $('#agenda_date_time').on('apply.daterangepicker', function (ev, picker) {
+        // Set the selected date range in the correct format
+        var startDateFormatted = picker.startDate.format('YYYY-MM-DD HH:mm:ss');
+        var endDateFormatted = picker.endDate.format('YYYY-MM-DD HH:mm:ss');
+        var dateRange = startDateFormatted + ' to ' + endDateFormatted;
+        $(this).val(dateRange);
+  
+        // Set the formatted value in the hidden input
+        $('#formatted_agenda_date_time').val(dateRange);
+      });
+  
+      $('#agenda_date_time').on('cancel.daterangepicker', function (ev, picker) {
+        $(this).val('');
+        $('#formatted_agenda_date_time').val('');
+      });
+    });
+  </script>
+
+  <!-- footer -->
+  {% block footer %}
+  {% include './items/footer.html' %}
+  {% endblock %}
+
+  </body>
+</html>

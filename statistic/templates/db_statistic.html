@@ -1,0 +1,81 @@
+{% if error %}
+  <p>{{ error }}</p>
+{% endif %}
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/db_statistic.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="../static/js/bootstrap.js"></script>
+
+    <title>Database Statistik</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png">
+  </head>
+
+  <body>
+  <!-- Navbar -->
+  {% block navbar %}
+    {% include './items/navbar.html' %}
+  {% endblock %}
+  
+  <!-- MAIN -->
+  <section>
+    <div class="container" style="height: 648px;">
+      <div class="row d-flex justify-content-center" style="padding-top: 50px;">
+        <!-- Table User -->
+        <div class="col-md-12"  style="padding-top: 8px;">
+          <h1 class="text-center" style="font-size: 20px; font-weight: 700;">DATABASE STATISTIK</h1>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">MedSos</th>
+                <th scope="col">Account</th>
+                <th scope="col">Followers</th>
+                <th scope="col">Posts</th>
+                <th scope="col">Link Post</th>
+                <th scope="col">Viewers</th>
+                <th scope="col">Likes</th>
+                <th scope="col">Comments</th>
+                <th scope="col">Caption</th>
+                <th scope="col">Durasi</th>
+                <th scope="col">Nomor</th>
+                <th scope="col">Topik</th>
+                <th scope="col">Pesan Kunci</th>
+                <th scope="col">Sub Pesan Kunci</th>
+              </tr>
+            </thead>
+
+            <!-- Get data user from database-->
+            <tbody>
+              {% for socmed_data in socmed_data_list %}
+              <tr>
+                <td>{{ socmed_data.account_url }}</td>
+                <td>{{ socmed_data.followers}}</td>
+                <td>{{ socmed_data.posts }}</td>
+                <td>{{ socmed_data.account_url}}</td>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- footer -->
+  {% block footer %}
+  {% include './items/footer.html' %}
+  {% endblock %}
+
+  </body>
+</html>
