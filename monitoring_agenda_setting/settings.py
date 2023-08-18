@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ge@^0+zul#j$@(=de46fb00(t+&zyii=ty@95a7@1r@qvjfdd!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 ""
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [".vercel.app"]
 
 
 # Application definition
@@ -164,5 +164,3 @@ TIME_ZONE = 'Asia/Jakarta'
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'  # Or use other appropriate session backends
 SESSION_COOKIE_SECURE = True  # If using HTTPS
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
