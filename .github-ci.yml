@@ -1,5 +1,5 @@
 default:
-  image: nikolaik/python-nodejs:python3.10.2-nodejs16
+  image: nikolaik/python-nodejs:python3.10-nodejs16
 
 deploy_preview:
   stage: deploy
