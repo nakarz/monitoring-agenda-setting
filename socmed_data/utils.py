@@ -127,6 +127,9 @@ def fetch_and_process_batch(loader, profile, agenda_start, agenda_end, batch_siz
     viewers = []
 
     posts = profile.get_posts()
+
+    agenda_start = pytz.UTC.localize(agenda_start)
+    agenda_end = pytz.UTC.localize(agenda_end)
     
     for post in posts:
         post_date_utc = post.date.astimezone(pytz.UTC)

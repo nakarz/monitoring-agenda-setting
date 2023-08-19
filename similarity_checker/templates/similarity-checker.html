@@ -28,7 +28,7 @@
 
   <!-- MAIN -->
   <section>
-    <div class="container-fluid" style="height: 1050px;">
+    <div class="container-fluid">
       <div class="row d-flex justify-content-center">
 
         <!-- Title -->
@@ -37,7 +37,7 @@
         </div>
 
         <!-- Form for Manual Verification -->
-        <div class="col-md-10" style="background-color: #C7EEFF; height: 800px; border-radius: 12px;">
+        <div class="col-md-10" style="background-color: #C7EEFF; border-radius: 12px; padding-bottom: 39px;">
           <div style="padding: 20px 63px 0px 63px;">
             <form method="POST">
               {% csrf_token %}
@@ -92,12 +92,12 @@
               </div>
               <div class="pb-3">
                 <label for="pesan_kunci" class="form-label">Pesan Kunci: </label>
-                <input type="text" class="form-control" id="pesan_kunci" name="pesan_kunci" readonly value="Indonesia menjaga pertumbuhan ekonomi diatas 5% selama 7 kuartal berturut turut. APBN menjadi instrumen pemulihan ekonomi yang penting dan akan terus mendukung pembangunan seluruh pelosok Indonesia dan perbaikan kesejahteraan rakyat. APBN harus terus dijaga kesehatan dan kredibilitasnya dan diperkuat efektivitas dan akuntabilitasnya agar terus menjadi instrumen pembangunan yang handal, RUU APBN 2024">
+                <textarea class="form-control" id="pesan_kunci" name="pesan_kunci" readonly rows="5">Indonesia menjaga pertumbuhan ekonomi diatas 5% selama 7 kuartal berturut turut. APBN menjadi instrumen pemulihan ekonomi yang penting dan akan terus mendukung pembangunan seluruh pelosok Indonesia dan perbaikan kesejahteraan rakyat. APBN harus terus dijaga kesehatan dan kredibilitasnya dan diperkuat efektivitas dan akuntabilitasnya agar terus menjadi instrumen pembangunan yang handal, RUU APBN 2024</textarea>
               </div>
               <div class="pb-3">
-                <label for="sub_pesan_kunci" class="form-label">Sub Pesan Kunci: </label>
-                <input type="text" class="form-control" id="sub_pesan_kunci" name="sub_pesan_kunci" readonly value="Indonesia menjaga pertumbuhan ekonomi diatas 5% selama 7 kuartal berturut turut. APBN menjadi instrumen pemulihan ekonomi yang penting dan akan terus mendukung pembangunan seluruh pelosok Indonesia dan perbaikan kesejahteraan rakyat. APBN harus terus dijaga kesehatan dan kredibilitasnya dan diperkuat efektivitas dan akuntabilitasnya agar terus menjadi instrumen pembangunan yang handal, RUU APBN 2024">
-              </div>
+                  <label for="sub_pesan_kunci" class="form-label">Sub Pesan Kunci: </label>
+                  <textarea class="form-control" id="sub_pesan_kunci" name="sub_pesan_kunci" readonly rows="5">Indonesia menjaga pertumbuhan ekonomi diatas 5% selama 7 kuartal berturut turut. APBN menjadi instrumen pemulihan ekonomi yang penting dan akan terus mendukung pembangunan seluruh pelosok Indonesia dan perbaikan kesejahteraan rakyat. APBN harus terus dijaga kesehatan dan kredibilitasnya dan diperkuat efektivitas dan akuntabilitasnya agar terus menjadi instrumen pembangunan yang handal, RUU APBN 2024</textarea>
+              </div>            
               <div class="row">
                 <div class="col-4">
                   <label for="accuracy" class="form-label">Accuracy Automated Checker: </label>
@@ -120,7 +120,7 @@
         </div>
 
         <!-- Submit Form Button-->
-        <div class="col-md-12 d-flex justify-content-center" style="padding-top: 18px;">
+        <div class="col-md-12 d-flex justify-content-center" style="padding: 40px 0px 20px 0px;">
           <button class="btn-option" style="width: 287px; height: 48px; background: #EFB829; color: #0D5CAB; border-style: none;" type="submit" name="submit">Save</button>
         </div>
           </form>
