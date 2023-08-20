@@ -7,5 +7,6 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('logout/', views.logout, name='logout'),
     path('roles/', views.roles, name='roles'),
+    path('delete-account/<uuid:id>/', views.delete_roles, name='delete_roles'),
     path('', views.home, name='home'),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,  get_object_or_404
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth import authenticate, login as auth_login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
@@ -90,3 +90,12 @@ def roles(request):
         'count_user_monitor': user_monitor,
     }
     return render(request, 'roles.html', context)
+
+def delete_roles(request, id):
+    role = get_object_or_404(User, id=id)
+    print('id: ', id)
+    
+    if request.method == 'POST':
+        role.delete()
+        return redirect('roles')
+
