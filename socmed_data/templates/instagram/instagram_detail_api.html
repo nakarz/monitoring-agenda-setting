@@ -119,12 +119,11 @@
                           <td>{{ entry.comment }}</td>
                           <td>{{ entry.viewer }}</td>
                           <td>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal{{ entry.caption }}">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal{{ entry.post_url }}">
                               Caption
                             </button>
-                          </td>
-                          <div class="modal fade" id="Modal{{ entry.caption }}" tabindex="-1" aria-labelledby="Modal{{ entry.caption }}" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
+                            <div class="modal fade" id="Modal{{ entry.post_url }}" tabindex="-1" aria-labelledby="Modal{{ entry.post_url }}" aria-hidden="true">
+                              <div class="modal-dialog modal-lg">
                               <div class="modal-content">
                                 <div class="modal-header">
                                   <h5 class="modal-title" id="exampleModalLabel">Caption</h5>
@@ -132,8 +131,9 @@
                                 </div>
                                 <div class="modal-body">{{ entry.caption }}</div>
                               </div>
+                              </div>
                             </div>
-                          </div>
+                          </td>
                           <td>{{ entry.similarity }}%</td>
                           <td>{{ entry.status_similarity }}</td>
                           <td>
