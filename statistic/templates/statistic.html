@@ -37,75 +37,88 @@
 
   <section>
     <div class="container-fluid">
-      <div class="row d-flex justify-content-center">
-
-        <!-- Title -->
-        <div class="col-md-12 text-center">
-          <h1 style="font-size: 32px; font-weight: 700; padding-top: 53px; padding-bottom: 39px;">STATISTIK</h1>
+      
+      <!-- Title -->
+      <div class="text-center">
+        <h1 style="font-size: 32px; font-weight: 700; padding-top: 53px; padding-bottom: 39px;">STATISTIK</h1>
+      </div>
+  
+      <div class="d-flex justify-content-center row">
+  
+        <div class="col-md-10" style="padding-bottom: 60px; padding-left: 30px;">
+          <div class="dropdown">
+            <h1 style="font-size: 16px; font-weight: 400;">Unit Eselon 1</h1>
+            <button class="btn btn-secondary dropdown-toggle shadow border-0" style="width: 280px; height: 60px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Pilih Unit Eselon 1
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='kemenkeu' %}">Kemenkeu</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='setjen' %}">Setjen</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='dja' %}">DJA</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='djp' %}">DJP</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='djppr' %}">DJPPR</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='djpb' %}">DJPB</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='djkn' %}">DJKN</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='itjen' %}">Itjen</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='djbc' %}">DJBC</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='bkf' %}">BKF</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='bppk' %}">BPPK</a></li>
+              <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='smv' %}">SMV</a></li>
+            </ul>
+          </div>
         </div>
-
-        <div style="padding-left: 90px;">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-12" style="padding-bottom: 60px;">
-              <div class="dropdown">
-                <h1 style="font-size: 16px; font-weight: 400;">Unit Eselon 1</h1>
-                <button class="btn btn-secondary dropdown-toggle shadow border-0" style="width: 280px; height: 60px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Pilih Unit Eselon 1
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='kemenkeu' %}">Kemenkeu</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='setjen' %}">Setjen</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='dja' %}">DJA</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='djp' %}">DJP</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='djppr' %}">DJPPR</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='djpb' %}">DJPB</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='djkn' %}">DJKN</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='itjen' %}">Itjen</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='djbc' %}">DJBC</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='bkf' %}">BKF</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='bppk' %}">BPPK</a></li>
-                  <li><a class="dropdown-item" href="{% url 'statistic-ue1' ue1='smv' %}">SMV</a></li>
-                </ul>
+  
+        <!-- Left Coloumn -->
+        <div class="col-md-3" style="background-color: #C7EEFF; height: 323px; border-radius: 20px; margin-bottom: 50px;">
+          <div style="padding: 30px 24px 30px 24px;">
+            <p style="margin-bottom: auto; font-family: Inter; font-size: 18px;">Statistik</p>
+          </div>
+        </div>  
+  
+        <!-- Center Coloumn -->
+        <div class="col-md-3" style="background-color: #C7EEFF; height: 323px; border-radius: 20px; margin-bottom: 50px; margin-left: 50px; margin-right: 50px;">
+          <div style="padding: 30px 24px 30px 24px;">
+            <p style="margin-bottom: auto; font-family: Inter; font-size: 18px;">Statistik</p>
+            <h2 style="color: #0D5CAB; font-family: Inter; font-size: 22px; font-weight: 700; padding-bottom: 33px;">Agenda</h2>
+            <div class="d-flex justify-content-between">
+              <h3 style="font-size: 14px;">Jumlah Topik</h3>
+              <h3 style="font-size: 14px;">{{ total_topik_agenda }}</h3>
+            </div>
+            <div class="progress mb-3">
+              <div class="progress-bar" role="progressbar" style="width: {{ total_topik_agenda }}%;" aria-valuenow="{{ total_topik_agenda }}" aria-valuemin="0" aria-valuemax="1000"></div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h3 style="font-size: 14px;">Jumlah Pesan Kunci</h3>
+              <h3 style="font-size: 14px;">{{ total_pesan_kunci_words }}</h3>
+            </div>
+            <div class="progress mb-3">
+              <div class="progress-bar" role="progressbar" style="width: {{ total_pesan_kunci_words }}%;" aria-valuenow="{{ total_pesan_kunci_words }}" aria-valuemin="0" aria-valuemax="1000"></div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h3 style="font-size: 14px;">Jumlah Sub Pesan Kunci</h3>
+              <h3 style="font-size: 14px;">{{ total_sub_pesan_kunci_words }}</h3>
               </div>
+            <div class="progress mb-3">
+              <div class="progress-bar" role="progressbar" style="width: {{ total_sub_pesan_kunci_words }}%;" aria-valuenow="{{ total_sub_pesan_kunci_words }}" aria-valuemin="0" aria-valuemax="1000"></div>
             </div>
           </div>
-        </div>
+        </div>  
+  
+        <!-- Right Coloumn -->
+        <div class="col-md-3" style="background-color: #C7EEFF; height: 323px; border-radius: 20px; margin-bottom: 50px;">
+          <div style="padding: 30px 24px 30px 24px;">
+            <p style="margin-bottom: auto; font-family: Inter; font-size: 18px;">Statistik</p>
+          </div>
+        </div>  
+        
+      </div>
 
-      <!-- Right Coloumn -->
-      <div class="col-md-3" style="background-color: #C7EEFF; height: 323px; border-radius: 20px; margin-bottom: 50px;">
-        <div style="padding: 30px 24px 30px 24px;">
-          <p style="margin-bottom: auto; font-family: Inter; font-size: 18px;">Statistic</p>
-          <h2 style="color: #0D5CAB; font-family: Inter; font-size: 22px; font-weight: 700; padding-bottom: 33px;">Agenda</h2>
-          <div class="d-flex justify-content-between">
-            <h3 style="font-size: 14px;">Jumlah Topik</h3>
-            <h3 style="font-size: 14px;">{{ total_topik_agenda }}</h3>
-          </div>
-          <div class="progress mb-3">
-            <div class="progress-bar" role="progressbar" style="width: {{ total_topik_agenda }}%;" aria-valuenow="{{ total_topik_agenda }}" aria-valuemin="0" aria-valuemax="1000"></div>
-          </div>
-          <div class="d-flex justify-content-between">
-            <h3 style="font-size: 14px;">Jumlah Pesan Kunci</h3>
-            <h3 style="font-size: 14px;">{{ total_pesan_kunci_words }}</h3>
-          </div>
-          <div class="progress mb-3">
-            <div class="progress-bar" role="progressbar" style="width: {{ total_pesan_kunci_words }}%;" aria-valuenow="{{ total_pesan_kunci_words }}" aria-valuemin="0" aria-valuemax="1000"></div>
-          </div>
-          <div class="d-flex justify-content-between">
-            <h3 style="font-size: 14px;">Jumlah Sub Pesan Kunci</h3>
-            <h3 style="font-size: 14px;">{{ total_sub_pesan_kunci_words }}</h3>
-            </div>
-          <div class="progress mb-3">
-            <div class="progress-bar" role="progressbar" style="width: {{ total_sub_pesan_kunci_words }}%;" aria-valuenow="{{ total_sub_pesan_kunci_words }}" aria-valuemin="0" aria-valuemax="1000"></div>
-          </div>
-        </div>
-      </div>  
-    </div>
     <!-- Button -->
     <!-- <div class="d-flex justify-content-center" style="padding: 40px 0px 20px 0px;">
       <a class="btn-option" style="width: 287px;" href="{% url 'table_input_as' %}" type="submit">Database Agenda Setting</a>
     </div> -->
-  </div>
-  </section>
+    </div>
+</section>
 
   <!-- footer -->
   {% block footer %}

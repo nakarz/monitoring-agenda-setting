@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{% static 'css/instagram_detail_api.css' %}">
     <title>Instagram Post Information</title>
-    <link rel="icon" type="image/x-icon" href="../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png">
+    <link rel="icon" type="image/x-icon" href="../../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png">
     <!-- Include jQuery library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -26,7 +26,7 @@
         <div class="row justify-content-center align-items-center">
           <div class="col col-2">
             <a class="navbar-brand" href="{% url 'dashboard' %}">
-              <img src="../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png" alt="" width="55" height="51" class="d-inline-block align-text-top">
+              <img src="../../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png" alt="" width="55" height="51" class="d-inline-block align-text-top">
             </a>
           </div>
           <div class="col col-10" style="font-size: 20px; font-weight: 700; padding-left: 34px;">
@@ -53,11 +53,9 @@
                     <a class="nav-link" href="{% url 'roles' %}">Roles</a>
                   </li>
                 {% endif %}
-                {% if user.roles != 'petugas_monitor' %}
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'table_input_as' %}">Agenda Setting</a>
-                  </li>
-                {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'table_input_as' %}">Agenda Setting</a>
+                </li>
                 <!-- {% if user.roles != 'petugas_input_agenda_setting' %}
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'dashboard_similarity_checker' %}">Similarity Checker</a>
@@ -120,7 +118,22 @@
                           <td>{{ entry.like }}</td>
                           <td>{{ entry.comment }}</td>
                           <td>{{ entry.viewer }}</td>
-                          <td>{{ entry.caption }}</td>
+                          <td>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal{{ entry.caption }}">
+                              Caption
+                            </button>
+                          </td>
+                          <div class="modal fade" id="Modal{{ entry.caption }}" tabindex="-1" aria-labelledby="Modal{{ entry.caption }}" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Caption</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">{{ entry.caption }}</div>
+                              </div>
+                            </div>
+                          </div>
                           <td>{{ entry.similarity }}%</td>
                           <td>{{ entry.status_similarity }}</td>
                           <td>
@@ -152,7 +165,7 @@
       <div class="row d-flex justify-content-center px-5">
         <div class="col-md-12" style="height: 64px;"></div>
         <div class="col-md-2">
-          <img src="../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png" alt="" width="144" height="134">
+          <img src="../../static/img/Logo_kementerian_keuangan_republik_indonesia 1.png" alt="" width="144" height="134">
         </div>
         <div class="col-md-6">
           <h3 class="text-white" style="font-size: 24px; font-weight: 700;">KEMENTERIAN KEUANGAN</h3>

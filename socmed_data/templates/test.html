@@ -55,11 +55,9 @@
                     <a class="nav-link" href="{% url 'roles' %}">Roles</a>
                   </li>
                 {% endif %}
-                {% if user.roles != 'petugas_monitor' %}
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'table_input_as' %}">Agenda Setting</a>
-                  </li>
-                {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'table_input_as' %}">Agenda Setting</a>
+                </li>
                 <!-- {% if user.roles != 'petugas_input_agenda_setting' %}
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'similarity-checker' %}">Similarity Checker</a>
@@ -79,17 +77,17 @@
 
   <!-- MAIN -->
   <section>
-    <div class="container" style="height: 648px;">
+    <div class="container-lg" style="height: 648px;">
       <div class="row d-flex justify-content-center" style="padding-top: 50px;">
 
         <!-- Statistic User -->
         <h1 class="text-center" style="font-size: 20px; font-weight: 700; padding-bottom: 20px;">Instagram Post Information (API)</h1>
 
         <div class="col-md-2">
-          <p style="font-size: 14px; font-weight: 700;">Unit Eselon 1<br>Start Date - End Date<br>Account URL<br>Followers<br>Posts<br></p>
+          <p style="font-size: 14px; font-weight: 700;">Unit Eselon 1<br>Start Date - End Date<br>Avarage Similarity<br></p>
         </div>
         <div class="col-md-10">
-          <p style="font-size: 14px; font-weight: 700;">: Kemenkeu<br>: Aug. 8, 2023, midnight - Aug. 8, 2023, 11:59 p.m.<br>: https://www.instagram.com/smindrawati/<br>: 2353745<br>: 2732<br></p>
+          <p style="font-size: 14px; font-weight: 700;">: Kemenkeu<br>: Aug. 17, 2023, midnight - Aug. 18, 2023, 11:59 p.m.<br>: 2.1 %<br></p>
         </div>
 
         <!-- Table User -->
@@ -97,6 +95,9 @@
           <table class="table table-hover">
             <thead>
               <tr>
+                <th scope="col">Account URL</th>
+                <th scope="col">Followers</th>
+                <th scope="col">Post</th>
                 <th scope="col">Post URLs</th>
                 <th scope="col">Likes</th>
                 <th scope="col">Comments</th>
@@ -110,10 +111,15 @@
 
             <!-- Get data user from database-->
             <tbody>
+
+              <!-- DATA 1 -->
               <tr>
-                <td>https://www.instagram.com/p/CvrtD2RpKi0</td>
-                <td>919</td>
-                <td>13</td>
+                <td rowspan="3">http://instagram.com/smindrawati</td>
+                <td rowspan="3">2369285</td>
+                <td rowspan="3">2764</td>
+                <td>https://www.instagram.com/p/CwG2pLKyPiB</td>
+                <td>43254</td>
+                <td>419</td>
                 <td>None</td>
                 <td>
                   <!-- Button trigger modal -->
@@ -121,8 +127,8 @@
                     Caption
                   </button>
                 </td>
-                <td>8 %</td>
-                <td>Sesuai</td>
+                <td>0 %</td>
+                <td>Tidak Sesuai</td>
                 <td>
                   <a class="btn btn-warning" href="{% url 'similarity-checker' %}" role="button">Verifikasi</a>
                 </td>
@@ -136,7 +142,41 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        Pemerintah memiliki komitmen yang sangat serius pada dunia pendidikan. Hal ini terlihat dari kewajiban alokasi APBN #UangKita sebesar 20% di sektor ini. Hari ini, saya bersama dengan Pak @suahasil (yang sama-sama masih memiliki NIP dosen 13) dan jajaran @kemenkeuri lainnya berbincang dengan Prof. Ir. Nizam (Plt. Dirjen Dikti @kemendikbud.ri) terkait bagaimana kita bisa lebih memaksimalkan alokasi ini. Fokus pembicaraan kami adalah tentang pendanaan PTNBH kelas dunia yang berkelanjutan. Kami ingin mendengar dari Prof. Nizam supaya mendapatkan perspektif baru terkait pengelolaan anggaran ini. Selama berbincang, kami sepakat bahwa yang harus menjadi fokus kita adalah what is within our control. Model bisnis dan tata kelola harus terus kita evaluasi dan perbaiki. Tujuannya, supaya Indonesia memiliki perguruan tinggi yang kelas dunia. Masuk di ranking 100 besar dunia. Perlu bauran kebijakan dari beragam aspek disini. Tidak hanya di dalam universitasnya, namun juga dalam ekosistemnya..! Sebagai seseorang yang sangat dekat dengan dunia pendidikan, saya pastikan @kemenkeuri dan APBN #UangKita akan terus hadir mendukung dunia pendidikan di Indonesia..! Dari Dialog dengan Plt. Direktur Jenderal Pendidikan Tinggi, Prof. Ir. Nizam, M.Sc., DIC, Ph.D., IPU, Asean Eng. Jakarta, 8 Agustus 2023
+                        My Bestie @retno_marsudi 💝 and Mas Agus Marsudi. My bestie and your bestie Sit down by di fire Your bestie say she wan' party So can we make these flames go higher? Talkin' hey now (hey now), hey now (hey now) Iko iko a nae Chakimo fina a na nae Chakimo fina nae (boom) From Iko Iko lyric Songwriters: Barbara Anne Hawkins / Joan Marie Johnson / Rosa Lee Hawkins	
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </tr>
+
+              <!-- DATA 2 -->
+              <tr>
+                <td>https://www.instagram.com/p/CwFVmkjJMrX</td>
+                <td>95587</td>
+                <td>782</td>
+                <td>None</td>
+                <td>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    Caption
+                  </button>
+                </td>
+                <td>8.2 %</td>
+                <td>Sesuai</td>
+                <td>
+                  <a class="btn btn-success" href="{% url 'similarity-checker' %}" role="button">Terverifikasi</a>
+                </td>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Caption</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        “Nggak nyangka saya ikut jadi 5 pemenang juara pakaian adat di Perayaan Hari Kemerdekaan Republik Indonesia 17-8-2023 di Istana Merdeka bersama @kaesangp dan @erinagudono dapat hadiah sepeda dari Presiden @jokowi. Bawa pulang sepeda - agak repot juga kalau pakai baju adat Soe Timor Tengah Selatan. Kita perlu merayakan kemenangan bersama Kaesang dan Erina dengan gowes bareng…di mana ya.. Di Istana Bogor, GBK, Solo atau Depok..😂😂 Jakarta, 18 Agustus 2023 __ 📸 @agus_suparto_ri_1	
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -146,25 +186,26 @@
                 </div>
               </tr>
 
+              <!-- DATA 3 -->
               <tr>
-                <td>https://www.instagram.com/p/KaSpo91hHa</td>
-                <td>821</td>
-                <td>31</td>
+                <td>https://www.instagram.com/p/CwEyvJZJjrk</td>
+                <td>36336</td>
+                <td>377</td>
                 <td>None</td>
                 <td>
                   <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     Caption
                   </button>
                 </td>
                 <td>0 %</td>
-                <td>Tidak Sesuai</td>
+                <td>Sesuai</td>
                 <td>
                   <a class="btn btn-success" href="{% url 'similarity-checker' %}" role="button">Terverifikasi</a>
                 </td>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
                   <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -172,7 +213,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                          ini. Hari ini, saya bersama dengan Pak @suahasil (yang sama-sama masih memiliki NIP dosen 13) dan jajaran @kemenkeuri lainnya berbincang dengan Prof. Ir. Nizam (Plt. Dirjen Dikti @kemendikbud.ri) terkait bagaimana kita bisa lebih memaksimalkan alokasi ini. Fokus pembicaraan kami adalah tentang pendanaan PTNBH kelas dunia yang berkelanjutan. Kami ingin mendengar dari Prof. Nizam supaya mendapatkan perspektif baru terkait pengelolaan anggaran ini. Selama berbincang, kami sepakat bahwa yang harus menjadi fokus kita adalah what is within our control. Model bisnis dan tata kelola harus terus kita evaluasi dan perbaiki. Tujuannya, supaya Indonesia memiliki perguruan tinggi yang kelas dunia. Masuk di ranking 100 besar dunia. Perlu bauran kebijakan dari beragam aspek disini. Tidak hanya di dalam universitasnya, namun juga dalam ekosistemnya..! Sebagai seseorang yang sangat dekat dengan dunia pendidikan, saya pastikan @kemenkeuri dan APBN #UangKita akan terus hadir mendukung dunia pendidikan di Indonesia..! Dari Dialog dengan Plt. Direktur Jenderal Pendidikan Tinggi, Prof. Ir. Nizam, M.Sc., DIC, Ph.D., IPU, Asean Eng. Jakarta, 8 Agustus 2023
+                        Ndeprok bersama Pak Pratik yang pasti super lelah dan Bu Risma di tangga Istana Merdeka sambil menikmati Gade Kopi yang membuka stand dengan blend Kopi Arabica Jawa Barat - Ciwidey kombinasi Kopi Flores Bajawa. Jeda yang dibutuhkan di sela Perayaan Kemerdekaan 17 Agustus 2023 di Istana Merdeka yang cukup terik. Saya pesan Latte dan Es Kopi Americano. Pak Pratik dan Kang Teten menikmati Espresso. Sebagai penikmat kopi- kami ngobrol tentang nikmatnya Kopi Indonesia dengan berbagai blend kombinasi. Kang Teten janji akan mengirim personal blend 4 kopi ☕️ yang katanya super enak ke saya..😀 ditunggu dan ditagih ya Kang Teten. Akhirnya banyak Menteri ikut gabung ndeprok di tangga Istana menikmati kopi. Ternyata banyak penikmat Kopi di Kabinet. Di Perayaan Kemerdekaan Republik Indonesia -17 Agustus 2023	
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -180,7 +221,46 @@
                     </div>
                   </div>
                 </div>
+              </tr>
 
+              <!-- DATA 4 -->
+              <tr>
+                <td rowspan="1">https://www.instagram.com/suahasil/</td>
+                <td rowspan="1">6094</td>
+                <td rowspan="1" >152</td>
+                <td>https://www.instagram.com/p/CwCrWtZhjAj</td>
+                <td>400</td>
+                <td>7</td>
+                <td>2497</td>
+                <td>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                    Caption
+                  </button>
+                </td>
+                <td>0.3 %</td>
+                <td>Sesuai</td>
+                <td>
+                  <a class="btn btn-warning" href="{% url 'similarity-checker' %}" role="button">verifikasi</a>
+                </td>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Caption</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Dirgahayu Negeriku Dirgahayu Republik Indonesia Tahun ini saya berkesempatan merayakan 78 tahun Kemerdekaan RI bersama tim Kemenkeu Satu di Maluku Utara. Upacara bendera pagi hari adalah kesempatan unt bertemu staf Kemenkeu Satu. Setelah upacara, kita Goyang Tobelo bersama ... 😍 Merdeka ... !!!
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </tr>
 
             </tbody>

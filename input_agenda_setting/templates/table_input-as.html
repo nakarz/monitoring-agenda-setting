@@ -28,7 +28,7 @@
   
   <!-- MAIN -->
   <section>
-    <div class="container" style="height: 648px;">
+    <div class="container" style="height: 520px;">
       <div class="row d-flex justify-content-center" style="padding-top: 50px;">
 
         <!-- Table User -->
@@ -56,14 +56,14 @@
                 <td>{{ as.sub_pesan_kunci }}</td>
                 <td>{{ as.agenda_date_time_start}}</td>
                 <td>{{ as.agenda_date_time_end}}</td>
-                <td>
-                </td>
               </tr>
             </tbody>
           </table>
+          {% if user.roles != 'petugas_monitor' %}
           <div class="d-flex justify-content-center pt-3">
             <a class="btn-option" href="{% url 'edit_agenda_setting' as.id %}" type="submit">Edit</a>
           </div>
+          {% endif %}
           {% endfor %}
         </div>
       </div>

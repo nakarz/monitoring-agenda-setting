@@ -79,7 +79,7 @@ def roles(request):
     users = User.objects.all()
     total_user = User.objects.count()
     user_staff = User.objects.filter(is_staff=True).count()
-    user_input = User.objects.filter(roles='petugas_input_agenda').count()
+    user_input = User.objects.filter(roles='petugas_agenda_setting').count()
     user_monitor = User.objects.filter(roles='petugas_monitor').count()
 
     context = {

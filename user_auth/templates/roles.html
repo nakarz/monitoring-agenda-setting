@@ -62,7 +62,7 @@
                 <td>{{ user.full_name }}</td>
                 <td>{{ user.nip }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.roles }}</td>
+                <td>{% if user.roles == "petugas_monitor" %} Petugas Monitor {% elif user.roles == "petugas_agenda_setting" %} Petugas Agenda Setting {% else %} {{ user.roles }} {% endif %}</td>
                {% comment %} <td>
                   <form method="POST">
                     {% csrf_token %}

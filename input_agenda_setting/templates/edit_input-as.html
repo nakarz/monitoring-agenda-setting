@@ -50,7 +50,7 @@
         </div>
 
         <!-- Form Input Agenda Setting -->
-        <div class="col-md-10" style="background-color: #C7EEFF; height: 500px; padding-top: 10px; padding-bottom: 10px; border-radius: 12px;">
+        <div class="col-md-10" style="background-color: #C7EEFF; height: 510px; padding-top: 10px; border-radius: 12px;">
           <div style="padding: 20px 63px 0px 63px;">
             <form method="POST">
               {% csrf_token %}
@@ -76,7 +76,7 @@
                 <input type="text" class="form-control" id="sub_pesan_kunci" name="sub_pesan_kunci" value="{{ agenda_setting.sub_pesan_kunci }}" required>
               </div>
             <!-- Submit Button -->
-            <div class="col-md-12 d-flex justify-content-center" style="padding-top: 80px;">
+            <div class="col-md-12 d-flex justify-content-center" style="padding-top: 60px;">
               <button class="btn-option" style="width: 287px; height: 48px; background: #EFB829; color: #0D5CAB; border-style: none;" type="submit" name="submit" value="Submit" onclick="sendForm()">Save</button>
             </div>
           </form>
